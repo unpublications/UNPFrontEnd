@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { RepositoryService } from 'src/app/shared/services/repository.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-conferencetopics',
@@ -7,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConferencetopicsComponent implements OnInit {
 
-  constructor() { }
+  constructor( private RepositoryService: RepositoryService, private route: Router ) { }
 
   ngOnInit() {
+
   }
 
 }

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import { ConferenceRoutingModule } from './conference-routing.module';
 import { OrganizersComponent } from './organizers/organizers.component';
@@ -28,6 +29,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     SponsersComponent,
     ConferenceComponent
   ],
-  imports: [CommonModule, ConferenceRoutingModule, NgbModule],
+  imports: [CommonModule, FormsModule, ConferenceRoutingModule, NgbModule],
 })
 export class ConferenceModule {}

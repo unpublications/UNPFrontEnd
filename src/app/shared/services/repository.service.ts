@@ -16,19 +16,26 @@ export class RepositoryService {
     );
   }
 
+  public getById(route: string, id ) {
+    return this.http.get(this.createCompleteRoute(route, this.envUrl.urlAddress) + '/' + id).pipe(
+      tap(_ => console.log('called')),
+      catchError(this.handleError<any>(`error`))
+    );
+  }
+
   public postData(route: string, body) {
-    return this.http.post(this.createCompleteRoute(route, this.envUrl.urlAddress), body, this.generateHeaders()).pipe(
+    return this.http.post(this.createCompleteRoute(route, this.envUrl.urlAddress) , body, this.generateHeaders()).pipe(
       tap((newHero: any) => console.log(`postmethod`)),
       catchError(this.handleError<any>('addHero'))
     );
   }
 
   public update(route: string, body){
-    return this.http.put(this.createCompleteRoute(route, this.envUrl.urlAddress), body, this.generateHeaders());
+    return this.http.put(this.createCompleteRoute(route, this.envUrl.urlAddress) + '/' + body.uniq_id, body, this.generateHeaders());
   }
 
-  public delete(route: string){
-    return this.http.delete(this.createCompleteRoute(route, this.envUrl.urlAddress));
+  public delete(route: string, id){
+    return this.http.delete(this.createCompleteRoute(route, this.envUrl.urlAddress) + '/' + id);
   }
 
   private createCompleteRoute(route: string, envAddress: string) {
