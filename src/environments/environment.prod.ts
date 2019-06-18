@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  DataServiceUrl: 'http://localhost:50827/api'
 };

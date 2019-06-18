@@ -1,0 +1,212 @@
+<div [@routerTransition]>
+  <h2 >Conference Master </h2>
+  <div style="float:right">
+       <button class="btn btn-primary" (click)="open(content)"> <span class="fa fa-plus"></span>
+        New</button>
+    </div>
+    <div class="card-body table-responsive">
+        <table class="table table-hover table-striped">
+            <thead>
+            <tr>
+                <th>S.No</th>
+                <th>Title</th>
+                <th>Date</th>
+                <th>Place</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1</td>
+                <td>Institute of Conference</td>
+                <td>2019-05-09</td>
+                <td>Hyd</td>
+                <td><div>
+                  <button type="button" class="btn btn-sm btn-success">Edit</button>
+                    <button type="button" class="btn btn-sm btn-danger">Delete</button>
+                </div></td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>Institute of Conference</td>
+              <td>2019-05-09</td>
+              <td>Hyd</td>
+              <td><div>
+                  <button type="button" class="btn btn-sm btn-success">Edit</button>
+                  <button type="button" class="btn btn-sm btn-danger">Delete</button>
+              </div></td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>Institute of Conference</td>
+              <td>2019-05-09</td>
+              <td>Hyd</td>
+              <td><div>
+                  <button type="button" class="btn btn-sm btn-success">Edit</button>
+                  <button type="button" class="btn btn-sm btn-danger">Delete</button>
+              </div></td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+  </div>
+
+
+  <ng-template class="modal modal-lg" #content let-c="close" let-d="dismiss" >
+
+      <div class="modal-header">
+          <h4 class="modal-title">Add Conference</h4>
+          <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+              <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+      <div class="modal-body">
+          <div class="row">
+              <div class="col-lg-6">
+                  <fieldset class="form-group">
+                      <label>Title:</label>
+                      <input class="form-control" placeholder="Enter Title">
+                  </fieldset>
+                </div>
+
+                <div class="col-lg-6">
+                    <fieldset class="form-group">
+                        <label>Date:</label>
+                <div class="input-group datepicker-input">
+                    <input class="form-control" placeholder="yyyy-mm-dd"
+                        name="dp"  ngbDatepicker #d="ngbDatepicker">
+                    <button class="input-group-addon" (click)="d.toggle()" type="button">
+                        <!-- <img src="img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/> -->
+                        <span class="fa fa-calendar"></span>
+                    </button>
+                </div>
+                </fieldset>
+              </div>
+
+              <div class="col-lg-6">
+                  <fieldset class="form-group">
+                      <label>Place:</label>
+                      <input class="form-control" placeholder="Enter Place">
+                  </fieldset>
+                </div>
+
+                <div class="col-lg-6">
+                    <fieldset class="form-group">
+                        <label>Theme:</label>
+                        <input class="form-control" placeholder="Enter Theme">
+                    </fieldset>
+                  </div>
+
+                  <div class="col-lg-6">
+                      <fieldset class="form-group">
+                          <label>Email:</label>
+                          <input type="email" class="form-control" placeholder="Enter Email">
+                      </fieldset>
+                    </div>
+
+                    <div class="col-lg-6">
+                    <div class="form-group">
+                        <label>Country:</label>
+                        <select class="form-control">
+                            <option value="selected">Select Country</option>
+                            <option>India</option>
+                            <option>Soudi</option>
+                            <option>Austrlia</option>
+                            <option>England</option>
+
+                        </select>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-6">
+                      <div class="form-group">
+                          <label>Subject:</label>
+                          <select class="form-control">
+                              <option value="selected">Select Subject</option>
+                              <option>Maths</option>
+                              <option>Chemistry</option>
+                              <option>English</option>
+                              <option>Hindi</option>
+                          </select>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <label for="exampleInputFile">Banner:</label>
+                        <div class="form-control">
+                        <input type="file" class="form-control-file" id="exampleInputFile">
+                      </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label>Committee:</label>
+                            <select class="form-control">
+                                <option value="selected">Select </option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                            </select>
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                          <div class="form-group">
+                              <label>Abstract:</label>
+                              <select class="form-control">
+                                  <option value="selected">Select </option>
+                                  <option>1</option>
+                                  <option>2</option>
+                                  <option>3</option>
+                                  <option>4</option>
+                              </select>
+                          </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>Register:</label>
+                                <select class="form-control">
+                                    <option value="selected">Select </option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                </select>
+                            </div>
+                          </div>
+
+                          <div class="col-lg-6">
+                              <div class="form-group">
+                                  <label>Schedule:</label>
+                                  <select class="form-control">
+                                      <option value="selected">Select </option>
+                                      <option>1</option>
+                                      <option>2</option>
+                                      <option>3</option>
+                                      <option>4</option>
+                                  </select>
+                              </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>Awards:</label>
+                                    <select class="form-control">
+                                        <option value="selected">Select </option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                    </select>
+                                </div>
+                              </div>
+                </div>
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+          <button type="button" class="btn btn-primary" > Save</button>
+
+      </div>
+
+  </ng-template>

@@ -1,0 +1,137 @@
+
+<div [@routerTransition]>
+  <h2 >Organizing Committee Master </h2>
+  <div style="float:right">
+      <button class="btn btn-primary" (click)="open(content)"> <span class="fa fa-plus"></span>
+       New</button>
+   </div>
+
+<div class="card-body table-responsive">
+    <table class="table table-hover table-striped">
+        <thead>
+        <tr>
+            <th>S.No</th>
+            <th>Name</th>
+            <th>Conference Name</th>
+            <th>Photo</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>1</td>
+            <td>Institute of Conference</td>
+            <td>test</td>
+            <td>image</td>
+            <td><div>
+                <button type="button" class="btn btn-sm btn-success">Edit</button>
+                <button type="button" class="btn btn-sm btn-danger">Delete</button>
+            </div></td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td> Conference</td>
+          <td>test</td>
+          <td>image</td>
+          <td><div>
+            <button type="button" class="btn btn-sm btn-success">Edit</button>
+            <button type="button" class="btn btn-sm btn-danger">Delete</button>
+          </div></td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Institute </td>
+          <td>test</td>
+          <td>image</td>
+          <td><div>
+            <button type="button" class="btn btn-sm btn-success">Edit</button>
+                <button type="button" class="btn btn-sm btn-danger">Delete</button>
+          </div></td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+</div>
+
+<ng-template class="modal modal-lg" #content let-c="close" let-d="dismiss" >
+
+    <div class="modal-header">
+        <h4 class="modal-title">Add Organizing Committee</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-lg-6">
+                <fieldset class="form-group">
+                    <label>Name:</label>
+                    <input type="text" class="form-control" placeholder="Enter Name">
+                </fieldset>
+              </div>
+
+              <div class="col-lg-6">
+                  <fieldset class="form-group">
+                      <label>Desg:</label>
+                      <input type="text" class="form-control" placeholder="Enter Desg">
+                  </fieldset>
+                </div>
+
+                <div class="col-lg-6">
+                    <fieldset class="form-group">
+                        <label>Place:</label>
+                        <input type="text" class="form-control" placeholder="Enter Place">
+                    </fieldset>
+                  </div>
+                  <div class="col-lg-6">
+                      <fieldset class="form-group">
+                          <label>University/Company:</label>
+                          <input type="text" class="form-control" placeholder="Enter University/Company ">
+                      </fieldset>
+                    </div>
+
+                  <div class="col-lg-6">
+                  <fieldset class="form-group">
+                      <label>Biography:</label>
+                      <textarea class="form-control" rows="2"></textarea>
+                  </fieldset>
+                </div>
+
+                <div class="col-lg-6">
+                    <fieldset class="form-group">
+                        <label>Research:</label>
+                        <textarea class="form-control" rows="2"></textarea>
+                    </fieldset>
+                  </div>
+
+
+                          <div class="col-lg-6">
+                              <div class="form-group">
+                                  <label>Conference:</label>
+                                  <select class="form-control">
+                                      <option value="selected">Select </option>
+                                      <option>1</option>
+                                      <option>2</option>
+                                      <option>3</option>
+                                      <option>4</option>
+                                  </select>
+                              </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <label for="exampleInputFile">Image:</label>
+                                <div class="form-control">
+                                <input type="file" class="form-control-file" id="exampleInputFile">
+                              </div>
+                            </div>
+              </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+        <button type="button" class="btn btn-primary" > Save</button>
+
+    </div>
+
+</ng-template>
+
