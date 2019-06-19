@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
     };
     this.Userservice.UserLogin(user).subscribe(ok => {
       console.log(ok);
-      if (ok === null) {
+      if (ok === null || ok === undefined) {
         alert('Please Enter Valid Login Details');
       } else {
       localStorage.setItem('isLoggedin', ok);

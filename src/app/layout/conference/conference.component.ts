@@ -3,7 +3,9 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { RepositoryService } from 'src/app/shared/services/repository.service';
 import { Router } from '@angular/router';
 import { ConferenceModel } from 'src/app/Models/conference.Model';
-
+import * as _ from 'lodash';
+import { from } from 'rxjs';
+import { UserService } from 'src/app/shared/services/user.service';
 @Component({
   selector: 'app-conference',
   templateUrl: './conference.component.html',
@@ -13,7 +15,8 @@ export class ConferenceComponent implements OnInit {
   closeResult: string;
   response : any;
   conf = new ConferenceModel();
-  constructor(private modalService: NgbModal, private RepositoryService: RepositoryService, private route: Router ) { }
+  constructor(private modalService: NgbModal, private RepositoryService: RepositoryService, private route: Router,
+      private _UserService: UserService ) { }
 
   ngOnInit() {
     this.getall();
@@ -72,5 +75,37 @@ export class ConferenceComponent implements OnInit {
       } else {
           return  `with: ${reason}`;
       }
+    }
+
+    changeListener(fileInput: any): void {
+      var s: string;
+      var name = fileInput.target.files[0].name;
+      var res = name.split('.');
+      var filenamecheck: string = res[res.length - 1];
+      var fext = [{ fnameext: 'png' }, { fnameext: 'jpg' }, { fnameext: 'jpeg' }];
+      var fd = _.find(fext, function(o) {
+        return o.fnameext === filenamecheck;
+      });
+      if (fileInput.target.files[0].size > 100000000) {
+      //  this.toastr.error('Size limit exceeded');
+      } else {
+        this.uploadFile(fileInput.target.files[0]);
+      }
+    }
+    uploadFile(file: File) {
+       debugger;
+      var formData = new FormData();
+      var uploadedFile = file;
+      formData.append(uploadedFile.name, uploadedFile);
+      formData.append('uploadFile', file.name);
+      this._UserService.UploadFile(formData).subscribe(
+        ok => {
+          console.log(ok);
+
+        },
+        nok => {
+          // this.presentToast("error")
+        }
+      );
     }
 }

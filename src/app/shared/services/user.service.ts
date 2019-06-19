@@ -9,4 +9,7 @@ export class UserService extends RepositoryService {
   public UserLogin(user: any): Observable <any> {
    return super.postData('Login/Login', user);
   }
+  public UploadFile(data: any): Observable<any> {
+    return super.postData('Conference/FileUpload', data);
+     }
 }

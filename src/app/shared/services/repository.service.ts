@@ -44,8 +44,8 @@ export class RepositoryService {
 
   private generateHeaders() {
     return {
-      headers: new HttpHeaders({'Content-Type': 'application/json'})
-    }
+      headers: new HttpHeaders()
+    };
   }
 
   private handleError<T> (operation = 'operation', result?: T) {
